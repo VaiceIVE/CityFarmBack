@@ -14,7 +14,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({credentials: true, origin: 'http://localhost:5173'}))
+app.use(cors({credentials: true, origin: 'http://127.0.0.1:5173'}))
 app.use('/api', UserRouter)
 app.use(ErrorMiddleware)
 
