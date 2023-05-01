@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 8000
 const UserRouter = require('./Routers/UserRouter')
 const ErrorMiddleware = require('./Middlewares/ErrorMiddleware')
 const app = express()
+const db = require("./DB")
 
-
-
+db()
 
 app.use(express.json())
 app.use(cookieParser())

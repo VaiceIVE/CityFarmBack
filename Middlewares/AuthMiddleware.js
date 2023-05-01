@@ -14,6 +14,7 @@ module.exports = function(req, res, next)
         const token = req.headers.authorization.split(' ')[1]
         if(!token)
         {
+            console.log("No token")
             return next(ApiError.UnauthorizedError())
         }
 
@@ -21,6 +22,7 @@ module.exports = function(req, res, next)
 
         if (!userData)
         {
+            console.log("No User data")
             return next(ApiError.UnauthorizedError())
         }
 
