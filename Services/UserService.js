@@ -79,6 +79,7 @@ class UserService{
     {
         if (!refreshToken)
         {
+            console.log("no refresh token")
             throw ApiError.UnauthorizedError();
         }
         const userData = TokenService.validateRefreshToken(refreshToken)
@@ -86,6 +87,7 @@ class UserService{
 
         if (!userData || !tokenfromdb)
         {
+            console.log("no user in db or token in db")
             throw ApiError.UnauthorizedError();
         }
 
