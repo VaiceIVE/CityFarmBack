@@ -24,7 +24,7 @@ class UserController
         } 
 
 
-        const {name, email, phone, pass, nickname} = req.body;
+        const {name, email, phone, password, nickname} = req.body;
 
         const userData = await UserService.registration(name, email, phone, pass, nickname)
 
@@ -71,13 +71,19 @@ class UserController
 
     async refresh(req, res, next)
     {
-      const {refreshToken} = req.cookies
+      try{
+        const {refreshToken} = req.cookies
 
-      const userData = await UserService.refresh(refreshToken)
+        const userData = await UserService.refresh(refreshToken)
 
-      res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*60*60*24*1000, httpOnly: true})
+        res.cookie('refreshToken', userData.refreshToken, {maxAge: 30*60*60*24*1000, httpOnly: true})
 
-      return res.json(userData)
+        return res.json(userData)
+      }
+      catch(e)
+      {
+        next(e)
+      }
     }
 
     async VerifyUser(req, res)
