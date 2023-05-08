@@ -1,6 +1,10 @@
 const Router = require('express')
-const UserController = require('../Controllers/UserController')
+const MarketController = require('../Controllers/MarketController')
 const router = Router()
+
+router.post('/createlot', MarketController.CreateLot)
+router.get('/lots', MarketController.Lots)
+router.get('/types', MarketController.Types)
 
 
 
