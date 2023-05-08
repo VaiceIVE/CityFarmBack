@@ -12,6 +12,18 @@ const db = require("./DB")
 
 db()
 
+app.use(
+    cookieSession({
+      secret: 'yourSecret',
+      sameSite: 'none',
+      secure: true,
+      httpOnly: true,
+    }),
+  );
+
+  app.enable('trust proxy');
+
+
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({preflightContinue: true, credentials: true, origin: 'http://127.0.0.1:5173'}))
@@ -19,7 +31,6 @@ app.use('/api', UserRouter)
 app.use('/api', MarketRouter)
 app.use(ErrorMiddleware)
 
-app.enable('trust proxy');
 
 
 app.listen(PORT, () => {console.log(`Listening ${PORT}!`)})
