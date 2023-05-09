@@ -33,9 +33,10 @@ app.use(function(req, res, next) {
     )
     next()
   })
+app.use(cors({sameSite: false, sameSiteMode: false, preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
+
 app.enable('trust proxy')
 app.use(express.json())
-app.use(cors({preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
 app.use('/api', UserRouter)
 app.use('/api', MarketRouter)
 app.use(ErrorMiddleware)
