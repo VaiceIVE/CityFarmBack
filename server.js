@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
     next()
   })
 
-app.use(cors({sameSite: "Lax", sameSiteMode: "Lax", preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
+app.use(cors({sameSite: "none", sameSiteMode: "none", preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
 
 app.enable('trust proxy')
 app.use(express.json())
