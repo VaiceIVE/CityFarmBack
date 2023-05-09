@@ -64,7 +64,7 @@ class MarketService
 
     async Lot(id)
     {
-        const lots = await Lot.find({"_id": ObjectId(id)})
+        const lots = await Lot.find({"_id": new ObjectId(id)})
 
         return lots
     }
