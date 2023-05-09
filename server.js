@@ -22,6 +22,8 @@ db()
 //     }),
 //   );
 
+
+app.use(cookieParser())
 app.use(function(req, res, next) {
     res.header('Content-Type', 'application/json;charset=UTF-8')
     res.header('Access-Control-Allow-Credentials', true)
@@ -31,7 +33,6 @@ app.use(function(req, res, next) {
     )
     next()
   })
-app.use(cookieParser())
 app.enable('trust proxy')
 app.use(express.json())
 app.use(cors({preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
