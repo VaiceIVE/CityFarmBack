@@ -13,7 +13,7 @@ router.post('/login', UserController.Login)
 router.post('/logout', UserController.logout)
 
 router.get("/confirm/:confirmationCode", UserController.VerifyUser)
-router.get("/refresh", UserController.refresh)
+router.post("/refresh", UserController.refresh)
 router.get("/users", AuthMiddleware, UserController.GetUsers)
 
 
