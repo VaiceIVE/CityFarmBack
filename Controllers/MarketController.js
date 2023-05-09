@@ -65,7 +65,7 @@ class MarketController
             next(e)
         }
     }
-    async Lots(req, res, next)
+    async Lot(req, res, next)
     {
         try {
             db()
