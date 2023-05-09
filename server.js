@@ -25,7 +25,6 @@ db()
 
 app.use(cookieParser())
 app.use(function(req, res, next) {
-    res.header('Content-Type', 'application/json;charset=UTF-8')
     res.header('Access-Control-Allow-Credentials', true)
     res.header(
       'Access-Control-Allow-Headers',
@@ -35,8 +34,10 @@ app.use(function(req, res, next) {
   })
 
 app.use(cors({preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
-
 app.use(express.json())
+app.get('/images/:filename', function (req, res) {
+    res.sendFile(__dirname + "/Static/" + req.params.filename);
+});
 app.use('/api', UserRouter)
 app.use('/api', MarketRouter)
 app.use(ErrorMiddleware)
