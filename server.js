@@ -34,11 +34,8 @@ app.use(function(req, res, next) {
     )
     next()
   })
-app.use(session({
-    secret: "123",
-    cookie: { domain:['http://127.0.0.1:5173', 'http://localhost:5173', 'http://185.177.219.117:8000'], path:'/', httpOnly: true, sameSite: 'Lax', secure: true},
-}));
-app.use(cors({sameSite: false, sameSiteMode: false, preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
+
+app.use(cors({sameSite: "Lax", sameSiteMode: "Lax", preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
 
 app.enable('trust proxy')
 app.use(express.json())
