@@ -1,6 +1,6 @@
 const Lot = require("../Models/Lot")
 const Type = require("../Models/Type")
-
+const mongoose = require("mongoose")
 
 class MarketService
 {
@@ -57,6 +57,13 @@ class MarketService
     async Lots()
     {
         const lots = await Lot.find()
+
+        return lots
+    }
+
+    async Lot(id)
+    {
+        const lots = await Lot.find({"_id": ObjectID(id)})
 
         return lots
     }

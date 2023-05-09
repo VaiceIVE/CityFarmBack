@@ -65,6 +65,20 @@ class MarketController
             next(e)
         }
     }
+    async Lots(req, res, next)
+    {
+        try {
+            db()
+
+            const id = req.params.id
+
+            const lots = await MarketService.Lot(id);
+
+            res.json(lots)
+        } catch (e) {
+            next(e)
+        }
+    }
 
     async Types(req, res, next)
     {
