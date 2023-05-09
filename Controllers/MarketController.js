@@ -19,7 +19,7 @@ class MarketController
         }
     }
 
-    async CreateLot(req, res, next)
+    async CreateLots(req, res, next)
     {
         try{
             db()
@@ -29,6 +29,23 @@ class MarketController
             const lot = await MarketService.CreateLots(objects)
     
             return res.json(lot)
+        }
+        catch(e)
+        {
+            next(e)
+        }
+    }
+
+    async CreateType(req, res, next)
+    {
+        try{
+            db()
+
+            const {name, icon} = req.body
+    
+            const type = await MarketService.CreateType(name, icon)
+    
+            return res.json(type)
         }
         catch(e)
         {

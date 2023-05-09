@@ -42,6 +42,18 @@ class MarketService
         return {objects: objects};
     }
 
+    async CreateType(name, icon)
+    {
+        const newType = await Type.create(
+            {
+                name: name,
+                icon: icon
+            }
+            )
+
+        return {type: newType};
+    }
+
     async Lots()
     {
         const lots = await Lot.find()
