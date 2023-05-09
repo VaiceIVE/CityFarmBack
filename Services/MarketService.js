@@ -21,6 +21,27 @@ class MarketService
         return {lot: newLot};
     }
 
+    async CreateLots(objects)
+    {
+        for(const object of objects)
+        {
+            const {userid, name, price, description, type, farm, icon} = object
+
+            const newLot = await Lot.create(
+                {
+                    userid: userid,
+                    name: name,
+                    price: price, 
+                    description: description, 
+                    type: type, 
+                    farm: farm, 
+                    icon: icon
+                }
+                )
+        }
+        return {objects: objects};
+    }
+
     async Lots()
     {
         const lots = await Lot.find()
