@@ -3,10 +3,10 @@ const MarketController = require('../Controllers/MarketController')
 const router = Router()
 
 router.post('/createlot', MarketController.CreateLot)
-router.post('/createlots', MarketController.CreateLots)
-router.get('/createtype', MarketController.Types)
+router.post('/createlots', MarketController.CreateLot)
+router.get('/createtype', MarketController.CreateType)
 router.get('/lots', MarketController.Lots)
-router.post('/types', MarketController.CreateType)
+router.get('/types', MarketController.Types)
 
 
 
