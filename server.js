@@ -10,6 +10,7 @@ const MarketRouter = require('./Routers/MarketRouter')
 const ErrorMiddleware = require('./Middlewares/ErrorMiddleware')
 const app = express()
 const db = require("./DB")
+const session = require('express-session')
 
 db()
 
@@ -33,6 +34,9 @@ app.use(function(req, res, next) {
     )
     next()
   })
+app.use(session({
+    cookie: { domain:['http://127.0.0.1:5173', 'http://localhost:5173'], path:'/', httpOnly: true, sameSite: 'none', secure: true},
+}));
 app.use(cors({sameSite: false, sameSiteMode: false, preflightContinue: true, credentials: true, origin: ['http://127.0.0.1:5173', 'http://localhost:5173']}))
 
 app.enable('trust proxy')
