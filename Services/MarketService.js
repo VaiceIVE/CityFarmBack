@@ -1,7 +1,6 @@
 const Lot = require("../Models/Lot")
 const Type = require("../Models/Type")
 const mongoose = require("mongoose")
-const  ObjectID = require('mongodb').ObjectId;
 
 class MarketService
 {
@@ -66,7 +65,7 @@ class MarketService
     {
         console.log(id)
         
-        const lots = await Lot.find({"_id": id})
+        const lots = await Lot.findOne({"_id": id})
 
         return lots
     }
