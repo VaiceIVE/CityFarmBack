@@ -12,6 +12,8 @@ const Token = require('../Models/Token')
 class UserService{
     async registration(name, email, phone, pass, nickname)
     {
+        db()
+
         const roles = ["User"]
         const candidate = await User.findOne({email: email})
 
@@ -49,6 +51,8 @@ class UserService{
 
     async login(email, password)
     {
+        db()
+
         const user = await User.findOne({email})
 
         if (!user)
@@ -79,6 +83,8 @@ class UserService{
 
     async refresh(refreshToken)
     {
+        db()
+
         if (!refreshToken)
         {
             console.log("no refresh token")
@@ -110,6 +116,8 @@ class UserService{
 
     async getAllUsers()
     {
+        db()
+
         const users = await User.find();
         return users;
     }

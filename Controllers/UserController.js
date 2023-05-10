@@ -15,8 +15,6 @@ class UserController
     async CreateUser(req, res, next)
     {
       try {
-        db()
-
         const errors = validationResult(req);
         if (!errors.isEmpty())
         {
@@ -41,8 +39,6 @@ class UserController
     {
         try
         {
-            db()
-
             const {email, password} = req.body
 
             const userData = await UserService.login(email, password)

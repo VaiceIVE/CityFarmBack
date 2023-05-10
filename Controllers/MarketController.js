@@ -5,8 +5,6 @@ class MarketController
     async CreateLot(req, res, next)
     {
         try{
-            db()
-
             const {userid, name, price, description, type, farm, icon} = req.body
     
             const lot = await MarketService.CreateLot(userid, name, price, description, type, farm, icon)
@@ -22,8 +20,6 @@ class MarketController
     async CreateLots(req, res, next)
     {
         try{
-            db()
-
             const {objects} = req.body
     
             const lot = await MarketService.CreateLots(objects)
@@ -39,8 +35,6 @@ class MarketController
     async CreateType(req, res, next)
     {
         try{
-            db()
-
             const {name, icon} = req.body
     
             const type = await MarketService.CreateType(name, icon)
@@ -56,8 +50,6 @@ class MarketController
     async Lots(req, res, next)
     {
         try {
-            db()
-
             const lots = await MarketService.Lots();
 
             res.json(lots)
@@ -68,8 +60,6 @@ class MarketController
     async Lot(req, res, next)
     {
         try {
-            db()
-
             const id = req.params.id
 
             const lots = await MarketService.Lot(id);
@@ -83,8 +73,6 @@ class MarketController
     async Types(req, res, next)
     {
         try {
-            db()
-
             const types = await MarketService.Types();
 
             res.json(types)

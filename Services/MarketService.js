@@ -6,6 +6,8 @@ class MarketService
 {
     async CreateLot(userid, name, price, description, type, farm, icon)
     {
+        db()
+        
         const newLot = await Lot.create(
             {
                 userid: userid,
@@ -23,6 +25,8 @@ class MarketService
 
     async CreateLots(objects)
     {
+        db()
+
         for(const object of objects)
         {
             const {userid, name, price, description, type, farm, icon} = object
@@ -44,6 +48,8 @@ class MarketService
 
     async CreateType(name, icon)
     {
+        db()
+
         const newType = await Type.create(
             {
                 name: name,
@@ -56,6 +62,8 @@ class MarketService
 
     async Lots()
     {
+        db()
+
         const lots = await Lot.find()
 
         return lots
@@ -72,6 +80,8 @@ class MarketService
 
     async Types()
     {
+        db()
+
         const types = await Type.find()
 
         return types
