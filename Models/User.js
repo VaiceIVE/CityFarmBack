@@ -13,6 +13,9 @@ User = new Schema({
     roles: [{type: String}],
     cash: {type: Number},
     hash: {type: String, required: true},
+    username: {type: String, default: "User"},
+    name: {type: String, default: "Иван"},
+    lastname: {type: String, default: "Петров"},
     profilePictureUri: {type: String},
 });
 

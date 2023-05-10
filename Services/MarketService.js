@@ -63,7 +63,7 @@ class MarketService
 
     async Lot(id)
     {
-        console.log(id)
+        //console.log(id)
         
         const lots = await Lot.findOne({"_id": id})
 
