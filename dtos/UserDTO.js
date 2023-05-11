@@ -6,6 +6,7 @@ module.exports = class UserDto
     name;
     lastname;
     username;
+    profilePictureUri;
 
     constructor(model)
     {
@@ -15,5 +16,6 @@ module.exports = class UserDto
         this.name = model.name;
         this.lastname = model.lastname;
         this.username = model.username;
+        this.profilePictureUri = model.profilePictureUri;
     }
 }
