@@ -5,7 +5,7 @@ module.exports = class UserDto
     isActivated;
     name;
     lastname;
-    nickname;
+    username;
 
     constructor(model)
     {
@@ -14,6 +14,6 @@ module.exports = class UserDto
         this.isActivated = model.isActivated;
         this.name = model.name;
         this.lastname = model.lastname;
-        this.nickname = model.nickname;
+        this.username = model.username;
     }
 }
