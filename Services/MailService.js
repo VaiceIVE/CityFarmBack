@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer')
+const db = require('../DB')
 
 class MailService{
     sendConfirmationEmail(name, email, confirmationCode)

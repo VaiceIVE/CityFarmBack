@@ -1,6 +1,7 @@
 const Lot = require("../Models/Lot")
 const Type = require("../Models/Type")
 const mongoose = require("mongoose")
+const db = require('../DB')
 
 class MarketService
 {

@@ -6,7 +6,7 @@ const TokenService = require('./TokenService')
 const UserDto = require('../dtos/UserDTO')
 const ApiError = require('../Exceptions/ApiError')
 const Token = require('../Models/Token')
-
+const db = require('../DB')
 
 
 class UserService{
